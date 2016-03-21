@@ -28,6 +28,9 @@
     },
     "creationDate": {
       "type": "string"
+    },
+    "@context": {
+      "type": "object"
     }
   },
   "additionalProperties": false,
