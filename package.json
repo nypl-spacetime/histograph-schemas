@@ -1,42 +1,27 @@
 {
-  "name": "histograph-schemas",
+  "name": "spacetime-schemas",
   "version": "0.5.1",
   "description": "",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/histograph/schemas.git"
+    "url": "git+https://github.com/nypl-spacetime/spacetime-schemas.git"
   },
   "bugs": {
-    "url": "https://github.com/histograph/schemas/issues"
+    "url": "https://github.com/nypl-spacetime/spacetime-schemas/issues"
   },
-  "homepage": "https://github.com/histograph/schemas#readme",
+  "homepage": "https://github.com/nypl-spacetime/spacetime-schemas",
   "dependencies": {
     "n3": "^0.4.2",
     "fuzzy-dates": "histograph/fuzzy-dates",
-    "histograph-config": "nypl-spacetime/histograph-config"
+    "spacetime-config": "nypl-spacetime/spacetime-config"
   },
   "devDependencies": {
-    "mocha": "^2.2.1",
-    "jscs": "^1.10.0",
-    "jshint": "^2.6.0"
+    "standard": "^6.0.8"
   },
   "scripts": {
-    "test": "jshint *.js && jscs *.js"
+    "test": "standard"
   },
   "author": "Bert Spaan <bert@waag.org>",
-  "license": "MIT",
-  "jshintConfig": {
-    "node": true,
-    "globalstrict": false,
-    "undef": true,
-    "unused": true,
-    "noarg": true
-  },
-  "jscsConfig": {
-    "preset": "airbnb",
-    "requireCamelCaseOrUpperCaseIdentifiers": null,
-    "disallowMultipleVarDecl": true,
-    "requireMultipleVarDecl": null
-  }
+  "license": "MIT"
 }

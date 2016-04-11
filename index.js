@@ -1,11 +1,13 @@
-var path = require('path');
-var config = require('histograph-config');
+'use strict'
 
-var pitsSchema = require('./lib/pitsSchema');
-var relationsSchema = require('./lib/relationsSchema');
-var graphmalizerConfig = require('./lib/graphmalizerConfig');
+var path = require('path')
+var config = require('spacetime-config')
 
-var ontology = require('./lib/ontology');
+var pitsSchema = require('./lib/pitsSchema')
+var relationsSchema = require('./lib/relationsSchema')
+var graphmalizerConfig = require('./lib/graphmalizerConfig')
+
+var ontology = require('./lib/ontology')
 
 module.exports = {
   dataset: require(path.join(__dirname, 'json-schemas', 'dataset.schema.json')),
@@ -13,4 +15,4 @@ module.exports = {
   relations: relationsSchema(config),
   graphmalizer: graphmalizerConfig(config),
   ontology: ontology(config)
-};
+}
