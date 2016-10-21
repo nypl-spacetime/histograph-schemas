@@ -12,8 +12,8 @@
   },
   "homepage": "https://github.com/nypl-spacetime/spacetime-schemas",
   "dependencies": {
+    "fuzzy-dates": "github:histograph/fuzzy-dates",
     "n3": "^0.4.2",
-    "fuzzy-dates": "histograph/fuzzy-dates",
     "spacetime-config": "nypl-spacetime/spacetime-config"
   },
   "devDependencies": {
