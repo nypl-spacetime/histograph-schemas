@@ -40,16 +40,7 @@
             "MultiPolygon",
             "GeometryCollection"
           ]
-        },
-        "coordinates": {}
-      },
-      "dependencies": {
-        "type": [
-          "coordinates"
-        ],
-        "coordinates": [
-          "type"
-        ]
+        }
       }
     },
     "data": {}
