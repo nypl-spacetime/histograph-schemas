@@ -1,7 +1,7 @@
 {
   "name": "spacetime-schemas",
-  "version": "0.6.0",
-  "description": "",
+  "version": "0.7.0",
+  "description": "JSON Schemas for NYC Space/Time Directory Objects, Relations and Datasets",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -13,7 +13,6 @@
   "homepage": "https://github.com/nypl-spacetime/spacetime-schemas",
   "dependencies": {
     "fuzzy-dates": "github:histograph/fuzzy-dates",
-    "n3": "^0.4.2",
     "spacetime-config": "nypl-spacetime/spacetime-config"
   },
   "devDependencies": {
@@ -22,6 +21,6 @@
   "scripts": {
     "test": "standard"
   },
-  "author": "Bert Spaan <bert@waag.org>",
+  "author": "Bert Spaan",
   "license": "MIT"
 }

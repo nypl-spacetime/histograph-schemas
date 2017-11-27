@@ -1,35 +1,60 @@
 ## Histograph Schemas
 
-Creates JSON schemas and Turtle/N3 ontology from types and relations in [Histograph configuration file](https://github.com/histograph/config/histograph.default.yml).
+Creates JSON schemas from types and relations in [NYC Space/Time Directory configuration file](https://github.com/nypl-spacetime/spacetime-config/blob/master/spacetime.default.yml).
 
 ```js
-var schemas = require('histograph-schemas');
+const schemas = require('spacetime-schemas')
 
-// schemas.objects:      objects JSON schema
-// schemas.relations:    relations JSON schema
-// schemas.dataset:      dataset JSON schema
-// schemas.graphmalizer: [Graphmalizer](https://github.com/graphmalizer/graphmalizer-core) configuration
+// JSON schema for Objects
+console.log(schemas.objects)
 
-schemas.ontology(function(err, results) {
-  // results:            Turtle/N3 ontology
-});
+// JSON schema for Relations
+console.log(schemas.relations)
+
+// JSON schema for Dataset
+console.log(schemas.dataset)
 ```
 
 ### Objects
 
-All Objects must have either an `id` or an `uri` and a type, and optionally geometry, data and date fields. Hence, a line in a NDJSON file containing Objects can be either:
+All Objects must have an `id` and a type, and optionally a GeoJSON geometry, and data and date fields. Example:
 
-    {"id": 123, "type": "hg:Place"}
-
-Or:
-
-    {"uri": "http://sws.geonames.org/2331234", "type": "Place"}
+```json
+{
+  "id": "1157-west-138th-street",
+  "name": "West 138th Street",
+  "type": "st:Street",
+  "validSince": 1893,
+  "validUntil": 1893,
+  "data": {
+    "layerId": "1157",
+    "borough": "Manhattan",
+    "originalName": "West 138th Street"
+  },
+  "geometry": {
+    "type": "LineString",
+    "coordinates": [
+      [
+        -73.95368860040216,
+        40.822042081347085
+      ],
+      [
+        -73.95641790185945,
+        40.82318935408355
+      ]
+    ]
+  }
+}
+```
 
 ### Relations
 
-All Relations must have `from`, `to` and `type` fields:
+All Relations must have `from`, `to` and `type` fields. Example:
 
-    {"from": "http://sws.geonames.org/2331234", "to": "gemeentegeschiedenis/leiden", "type": "liesIn"}
-
-
-Copyright (C) 2015 [Waag Society](http://waag.org).
+```json
+{
+  "from": "1157-west-137th-street",
+  "to": "mapwarper/layer-1157",
+  "type": "st:in"
+}
+```

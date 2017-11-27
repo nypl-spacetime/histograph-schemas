@@ -2,62 +2,45 @@
   "$schema": "http://json-schema.org/draft-04/schema#",
   "definitions": {},
   "type": "object",
+  "description": "NYC Space/Time Directory Object, with identifier, name, date, geometry and data fields",
   "properties": {
     "id": {
       "type": [
         "integer",
         "string"
       ],
-      "pattern": "^[a-zA-Z0-9]+[\\w\\._-]*$"
-    },
-    "uri": {
-      "type": "string",
-      "pattern": "^\\w+://.+"
+      "pattern": "^[a-zA-Z0-9]+[\\w\\._-]*$",
+      "description": "Identifier of Object, must be unique in this dataset"
     },
     "name": {
-      "type": "string"
+      "type": "string",
+      "description": "Name or title of Object"
     },
     "type": {
       "type": "string",
-      "enum": null
+      "enum": null,
+      "description": "Object type, must be one of the types in the enum"
     },
     "validSince": {
-      "$ref": "#/definitions/fuzzyDate"
+      "$ref": "#/definitions/fuzzyDate",
+      "description": "Date or year from when Object exists or is valid"
     },
     "validUntil": {
-      "$ref": "#/definitions/fuzzyDate"
+      "$ref": "#/definitions/fuzzyDate",
+      "description": "Date or year until when Object exists or is valid"
     },
     "geometry": {
-      "properties": {
-        "type": {
-          "type": "string",
-          "enum": [
-            "Point",
-            "LineString",
-            "Polygon",
-            "MultiPoint",
-            "MultiLineString",
-            "MultiPolygon",
-            "GeometryCollection"
-          ]
-        }
-      }
+      "type": "object",
+      "description": "GeoJSON geometry, either a Point, LineString or Polygon (or their Multi variants), or a GeometryCollection"
     },
-    "data": {}
-  },
-  "oneOf": [
-    {
-      "required": [
-        "id",
-        "type"
-      ]
-    },
-    {
-      "required": [
-        "uri",
-        "type"
-      ]
+    "data": {
+      "type": "object",
+      "description": "JSON data object, dataset descriptor of dataset to which Object belongs has a `fields` property containing the JSON Schema to which the contents of this property must conform"
     }
+  },
+  "required": [
+    "id",
+    "type"
   ],
   "additionalProperties": false
 }

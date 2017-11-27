@@ -1,21 +1,25 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
+  "description": "Directional relationship between two NYC Space/Time Directory Objects",
   "properties": {
     "from": {
       "type": [
         "integer",
         "string"
-      ]
+      ],
+      "description": "Identifier of origin Object (Objects from other datasets can be addressed by prepending their dataset ID, e.g. `datasetId/objectId`)"
     },
     "to": {
       "type": [
         "integer",
         "string"
-      ]
+      ],
+      "description": "Identifier of target Object (Objects from other datasets can be addressed by prepending their dataset ID, e.g. `datasetId/objectId`)"
     },
     "type": {
       "type": "string",
+      "description": "Relation type, must be one of the types in the enum",
       "enum": null
     }
   },

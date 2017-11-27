@@ -1,18 +1,25 @@
-'use strict'
+#!/usr/bin/env node
 
-var path = require('path')
-var config = require('spacetime-config')
+const path = require('path')
+const config = require('spacetime-config')
 
-var objectsSchema = require('./lib/objectsSchema')
-var relationsSchema = require('./lib/relationsSchema')
-var graphmalizerConfig = require('./lib/graphmalizerConfig')
+const objectsSchema = require('./lib/objectsSchema')
+const relationsSchema = require('./lib/relationsSchema')
 
-var ontology = require('./lib/ontology')
-
-module.exports = {
+const schemas = {
   dataset: require(path.join(__dirname, 'json-schemas', 'dataset.schema.json')),
   objects: objectsSchema(config),
-  relations: relationsSchema(config),
-  graphmalizer: graphmalizerConfig(config),
-  ontology: ontology(config)
+  relations: relationsSchema(config)
 }
+
+if (require.main === module) {
+  Object.keys(schemas).forEach((schema) => {
+    console.log('==================================================================')
+    console.log(`${schema}:`)
+    console.log('==================================================================')
+    console.log('')
+    console.log(JSON.stringify(schemas[schema], null, 2))
+  })
+}
+
+module.exports = schemas
