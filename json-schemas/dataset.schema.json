@@ -31,8 +31,7 @@
       "items": {
         "type": "object",
         "required": [
-          "title",
-          "path"
+          "title"
         ],
         "properties": {
           "title": {
@@ -42,6 +41,10 @@
           "path": {
             "type": "string",
             "description": "URL of or path to data source"
+          },
+          "email": {
+            "type": "string",
+            "description": "Email address of data source"
           }
         }
       }
@@ -53,27 +56,47 @@
       "items": {
         "type": "object",
         "required": [
-          "title",
-          "role"
+          "title"
         ],
         "properties": {
+          "path": {
+            "type": "string",
+            "description": "URL of contributor"
+          },
+          "email": {
+            "type": "string",
+            "description": "Email address of contributor"
+          },
+          "organization": {
+            "type": "string",
+            "description": "Organization contributor is affiliated to"
+          },
           "title": {
             "type": "string",
-            "description": "Title of contributor"
+            "description": "Name or title of contributor"
           },
           "role": {
             "type": "string",
-            "description": "Role of contributor"
+            "description": "Role of contributor",
+            "default": "contributor",
+            "enum": [
+              "author",
+              "publisher",
+              "maintainer",
+              "wrangler",
+              "contributor"
+            ]
           }
         }
       }
     },
-    "fields": {
+    "schema": {
       "type": "object",
       "description": "JSON Schema to which the data property of Objects in this dataset must conform"
     },
     "dependsOn": {
       "type": "array",
+      "minItems": 1,
       "description": "List of dataset dependencies; only run the ETL module of this dataset when its dependencies are met",
       "items": {
         "type": "string",
