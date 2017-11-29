@@ -35,7 +35,7 @@
     },
     "data": {
       "type": "object",
-      "description": "JSON data object, dataset descriptor of dataset to which Object belongs has a `fields` property containing the JSON Schema to which the contents of this property must conform"
+      "description": "Object data"
     }
   },
   "required": [
