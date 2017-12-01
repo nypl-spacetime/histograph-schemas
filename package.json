@@ -1,8 +1,11 @@
 {
   "name": "spacetime-schemas",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "description": "JSON Schemas for NYC Space/Time Directory Objects, Relations and Datasets",
   "main": "index.js",
+  "bin": {
+    "spacetime-schemas": "index.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nypl-spacetime/spacetime-schemas.git"
