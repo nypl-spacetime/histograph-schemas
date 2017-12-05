@@ -102,6 +102,15 @@
         "type": "string",
         "description": "Dependency of dataset, in form `datasetId.step`"
       }
+    },
+    "flattenPaths": {
+      "type": "array",
+      "minItems": 1,
+      "description": "List of JSON Paths used when flattening Object data, for example for the creation of a CSV version of the dataset",
+      "items": {
+        "type": "string",
+        "description": "JSON Path, see http://goessner.net/articles/JsonPath/index.html#e2"
+      }
     }
   },
   "additionalProperties": false,
